@@ -1,10 +1,17 @@
 import React from 'react';
+import NavBar from './navbar/Navbar';
+import ProfilePage from './profile/profile';
+
 
  const AppHooks = () => {
      return(
+         <>
          <div>
-             <h1>Hello World</h1>
+            <ProfilePage/>
+             <h1>Hello World, where's the Nav bar???</h1>
+            <NavBar />
          </div>
+         </>
      )
  }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './NavBar.css';
+import './Navbar.css';
 
 
 const  NavBar = (props) => {
