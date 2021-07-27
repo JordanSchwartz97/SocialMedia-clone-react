@@ -1,0 +1,16 @@
+.navbar-nav{
+    position: relative;
+    background-color: rgb(122, 97, 97);
+    right: 400px;
+}
+.navbar-item{
+    position: relative;
+    background-color: rgb(122, 97, 97);
+    right: 800px;
+    top: 10px;
+    color: black !important;
+}
+.form-control{
+    width: 10% !important;
+    position: relative;
+}

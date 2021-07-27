@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './NavBar.css';
+import './Navbar.css';
 
 
 const  NavBar = (props) => {
@@ -8,19 +8,18 @@ const  NavBar = (props) => {
 
     return (
         <div>
-            <nav className ="navbar navbar-light bg-light justify-content-between">
-                <a className="navbar-brand">Blue Falcon Social Media </a>
-                <form className="form-inline">
-                    <input className="form-control mr-sm-2" 
-                    type="text" 
-                    placeholder="Search for a friend!" 
-                    aria-label="Search">
-                    </input>
-                    <button className="btn btn-outline-success my-2 my-sm-0" 
-                    type="submit"
-                    >Search
-                    </button>
-                </form>
+            <nav className ="navbar navbar-dark bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul className= "navbar-nav">
+                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+            </ul>
+            <ul className= "navbar-item">
+                <a className="nav-link" href="#">Profile <span className="sr-only">(current)</span></a>
+            </ul>
+            <input className="form-control" type="search" placeholder="Search" aria-label="Search"></input>
+                <button className="btn" type="submit">Search</button>
             </nav>
         </div>
     );
