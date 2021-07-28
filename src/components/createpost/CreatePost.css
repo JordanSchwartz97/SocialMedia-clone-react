@@ -22,7 +22,7 @@ p{
     height:400px;
     padding-top: 50px;
 }
-label{
+.post-content{
     position: relative;
     bottom: 300px;
     font-size: 20px;
