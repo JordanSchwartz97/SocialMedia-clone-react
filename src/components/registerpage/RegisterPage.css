@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .create-form{
     top: 150px;
     fill: white;
@@ -9,4 +10,9 @@
 
 .input-box{
     padding-left: 20px;
+=======
+label{
+    position: relative;
+    left: 400px;
+>>>>>>> 63ed5bf7b4bb7b010d48fa9830750658b43119a7
 }
