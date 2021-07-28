@@ -8,7 +8,7 @@ export default function CreatePost(props) {
             </div>
             <div className="create-post-container">
                 <form className="create-post">
-                <label for="post-content">Create a Post</label>
+                <label  for="post-content">Create a Post</label>
                 <textarea id="post-content" name="post-content" placeholder="Write Something.."></textarea>
                 <input type="submit" value="Submit Post" onSubmit={props.handleSubmit}></input>
                 </form>

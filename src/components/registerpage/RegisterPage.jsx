@@ -5,19 +5,24 @@ import './RegisterPage.css'
 export default function RegisterPage() {
     return (
         <>
-            <form>
-                <div >
-                <label for="post-content">Create a Post</label>
-                    <input type="name"  id="post-content" placeholder="name"/>
+            <form className='input-div'>
+                <div className="input-div">
+                <div className='register-div'>
+                <label for="name">Name</label>
+                    <input type="name"  id="post-content" placeholder=""/>
                 </div>
                 <div >
                     <label >Email address</label>
-                    <input type="email"  id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
-                    <small id="emailHelp" >We'll never share your email with anyone!</small>
+                    <input type="email"  id="exampleInputEmail"  placeholder=""/>
                 </div>
                 <div>
                     <label >Password</label>
-                    <input type="password"  id="exampleInputPassword" placeholder="password"/>
+                    <input type="password"  id="exampleInputPassword" placeholder=""/>
+                </div>
+
+                <div className='submit-button'>
+                     <button>Submit</button>
+                </div>
                 </div>
             </form>
         </>

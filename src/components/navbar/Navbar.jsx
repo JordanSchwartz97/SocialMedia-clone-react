@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 import './Navbar.css';
 
 
@@ -7,19 +8,21 @@ const  NavBar = (props) => {
 
 
     return (
-        <div>
-            <nav className ="navbar navbar-dark bg-primary">
-            <a className="navbar-brand">Blue Falcon Social Media</a>
-            <ul className= "navbar-nav">
-                <a className="nav-link" href="/home">Home <span className="sr-only"></span></a>
-            </ul>
-            <ul className= "navbar-item">
-                <a className="nav-link" href="/profile">Profile <span className="sr-only"></span></a>
-            </ul>
-            <input className="form-control" type="search" placeholder="Search" aria-label="Search"></input>
-                <button className="btn" type="submit">Search</button>
-            </nav>
-        </div>
+        <nav>
+           <ul>
+               
+               <Link to ='/home'>
+                   <li>Home</li>
+               </Link>
+               <Link to ='/profile'>
+                   <li>Profile</li>
+               </Link>
+               <Link to ='/register'>
+                   <li>Register</li>
+               </Link>
+
+           </ul>
+        </nav>
     );
 }
 

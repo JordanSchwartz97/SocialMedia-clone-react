@@ -73,7 +73,7 @@ function LoginPage(props) {
   
   
     return (
-      <div>
+      <div className='input-div'>
         Login<br /><br />
         <div>
           Email<br />
