@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppHooks from './components/app';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-<<<<<<< HEAD
-=======
-
->>>>>>> 63ed5bf7b4bb7b010d48fa9830750658b43119a7
 import {
     BrowserRouter as Router,
     Switch,
