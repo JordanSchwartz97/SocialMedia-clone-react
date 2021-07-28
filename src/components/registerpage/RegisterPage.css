@@ -1,0 +1,12 @@
+.create-form{
+    top: 150px;
+    fill: white;
+    color: rgb(199, 191, 191);
+    border-style: solid;
+    position: absolute;
+    margin-left:100px
+}
+
+.input-box{
+    padding-left: 20px;
+}

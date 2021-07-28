@@ -69,6 +69,8 @@ function LoginPage(props) {
           props.history.push('/');
       }
     }
+
+  
   
     return (
       <div>
@@ -82,8 +84,10 @@ function LoginPage(props) {
           <input type="password" {...userpassword} autoComplete="new-password" />
         </div>
         {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-        <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={ login} disabled={loading} /><br />
-        <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={ login} disabled={loading} /><br />
+        
+            <input type="button" className="leftButton" value={loading ? 'Loading...' : 'Login'} onClick={ login} disabled={loading} /> 
+            <input type="button" className="rightButton" value={loading ? 'Loading...' : 'Register'} onClick={ login} disabled={loading} /><br />
+      
       </div>
     );
   }

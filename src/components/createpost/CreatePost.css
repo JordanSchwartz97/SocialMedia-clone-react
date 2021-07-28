@@ -22,11 +22,7 @@ p{
     height:400px;
     padding-top: 50px;
 }
-label{
-    position: relative;
-    bottom: 300px;
-    font-size: 20px;
-}
+
 textarea{
     position: relative;
     height: 300px;
