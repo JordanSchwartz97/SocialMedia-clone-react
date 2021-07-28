@@ -1,6 +1,38 @@
-import React from 'react'
+import React, {useState} from 'react'
+import jwt_decode from 'jwt-decode';
 import './CreatePost.css'
-export default function CreatePost(props) {
+import axios from 'axios';
+
+export default function CreatePost() {
+
+    let [user, setUser] = useState({});
+
+     const jwt = localStorage.getItem('token');
+     let decoded = '';
+    try{
+        decoded = jwt_decode(jwt);
+        
+    } catch(ex) {
+       console.log(ex); 
+    } 
+
+    const getUserData = async () => {
+        const response = await axios.get(`http://localhost:5000/api/collections/user/${decoded._id}`)
+        console.log(response);
+        if (response != null){
+            return response
+        }
+        else{
+            console.log('No response from api')
+        }
+        
+
+    }
+    let response = getUserData()
+    console.log(response)
+    // getUserData();
+    
+
     return (
         <div className="container">
            <div className="row">
@@ -10,7 +42,7 @@ export default function CreatePost(props) {
                 <form className="create-post">
                 <label  for="post-content">Create a Post</label>
                 <textarea id="post-content" name="post-content" placeholder="Write Something.."></textarea>
-                <input type="submit" value="Submit Post" onSubmit={props.handleSubmit}></input>
+                <input type="submit" value="Submit Post"></input>
                 </form>
             </div>
             <div className="post">       
@@ -22,3 +54,6 @@ export default function CreatePost(props) {
         </div>
     )
 }
+    
+
+    
