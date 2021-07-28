@@ -7,7 +7,6 @@ export default function ProfilePage() {
     return (
         <>
         <div className="NavBar">
-            <NavBar />
         </div>
         
         <div className="profilePage">

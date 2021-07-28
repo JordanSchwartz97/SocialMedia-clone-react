@@ -47,7 +47,7 @@ function LoginPage(props) {
         
         if (token ){
             console.log("history push")
-            props.history.push('/profile');
+            props.history.push('/home');
             }
             else {
                 console.log("failed")
@@ -82,6 +82,7 @@ function LoginPage(props) {
           <input type="password" {...userpassword} autoComplete="new-password" />
         </div>
         {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
+        <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={ login} disabled={loading} /><br />
         <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={ login} disabled={loading} /><br />
       </div>
     );
