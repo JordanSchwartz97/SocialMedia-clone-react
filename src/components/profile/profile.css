@@ -1,0 +1,19 @@
+.profile-image {
+    border-radius: 50%;
+
+}
+
+.Users-Name {
+    color: grey;
+    font-size:medium ;
+    padding-left: 100px;
+    padding-top: 25px;
+}
+
+.bio{
+
+    color:grey;
+    font-size: small;
+    padding-left: 120px;
+    padding-top: 10px;
+}
