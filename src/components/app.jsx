@@ -1,34 +1,19 @@
 import React from 'react';
-import Navbar from './navbar/Navbar';
-import CreatePost from './createpost/CreatePost';
-import axios from 'axios';
+import NavBar from './navbar/Navbar';
+import ProfilePage from './profile/profile';
+import LoginPage from './loginpage/LoginPage';
+import {Switch, Route} from 'react-router-dom';
+
  const AppHooks = () => {
-
-    const getPosts = async () => {
-            const getPosts = await axios.get(`http://localhost:5000/api/collections/allPosts`)
-            console.log("this is getPosts")
-        
-    }
-
-
-    function handleSubmit(event){
-        event.preventDefault();
-        getPosts();
-
-    }
-
-
-
-
-
-
      return(
-         <>
          <div>
-             <Navbar/>
-            <CreatePost/>
+            <Switch>
+                <Route path = "/" exact component ={LoginPage} />
+                <Route path = "/profile" component ={ProfilePage} />
+                
+            </Switch>
          </div>
-         </>
+         
      )
  }
 
