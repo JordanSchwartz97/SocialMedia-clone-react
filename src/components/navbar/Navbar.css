@@ -8,9 +8,15 @@
     background-color: rgb(122, 97, 97);
     right: 800px;
     top: 10px;
-    color: black !important;
+   
 }
 .form-control{
     width: 10% !important;
     position: relative;
+    right: 1000px;
+}
+.btn{
+    position: relative;
+    right: 1400px;
+    background-color: white !important;
 }
