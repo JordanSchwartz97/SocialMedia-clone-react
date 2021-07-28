@@ -8,8 +8,17 @@ function LoginPage(props) {
     const useremail = useFormInput('');
     const userpassword = useFormInput('');
     const [Auth, setAuth] = useState(false);
+    const [token, setToken] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    
+    /*useEffect(() => {
+        console.log("useEffect caled");
+        const credentials = { email: useremail.value,
+            password: userpassword.value };
+            axios.post("http://localhost:5000/api/auth/login/", credentials)
+            .then(response => setToken(response.headers['x-auth-token'])
+    )}, [token]);*/
 
     //http://localhost:5000/api/auth/login/
 
@@ -17,77 +26,47 @@ function LoginPage(props) {
         const credentials = { email: useremail.value,
                               password: userpassword.value };
 
-        const response = await axios.post("http://localhost:5000/api/auth/login/", credentials);
-        console.log(response.headers['x-auth-token'])
-
-        localStorage.setItem('token', response.headers['x-auth-token']);
-       const tokenFromStorage = localStorage.getItem('token') ;
-        console.log("t from",tokenFromStorage);
-       
-        if(tokenFromStorage != null ){
-            console.log("is not nul", tokenFromStorage)
-           setAuth(true);
-        }
-        
-        /*axios.post("http://localhost:5000/api/auth/login/", credentials).then(function (response) {
-            console.log(response.headers)
-        })
-        .catch(function (error) {
-            console.log(error)
-        })*/
-
-
-    }
-    
-   /* const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post('/api/Customer/SignUp', customerSignUp)
-          .then(function (response) {
-              console.log(response)
-          })
-          .catch(function (error) {
-              console.log(error)
-          }) 
-*/
-
-
-/*useEffect(() => {
-        const credentials = { email: useremail.value,
-        password: userpassword.value };
-
-        const response =  axios.post("http://localhost:5000/api/auth/login/", credentials);
-        console.log(response.headers['x-auth-token'])
+        const response =  await axios.post("http://localhost:5000/api/auth/login/", credentials);
+        //console.log("x-auth-token",response.headers['x-auth-token'])
 
         localStorage.setItem('token', response.headers['x-auth-token']);
         const tokenFromStorage = localStorage.getItem('token') ;
-        console.log("t from",tokenFromStorage);
-        if(tokenFromStorage != null ){
-            console.log("is not nul", tokenFromStorage)
-            setAuth(true);
-        }
-    return () => {
-      // Clean up the subscription
-      handleLogin();
-    };
-  });
-*/
+
+        setToken(tokenFromStorage);
+        if(token != null ){
+            console.log("token is not nul", token)
+           setAuth(true);
+        }    
+  
+    }
+
+    useEffect(() => {
+     
+        console.log("useEffect")
+      
+        
+        if (token ){
+            console.log("history push")
+            props.history.push('/profile');
+            }
+            else {
+                console.log("failed")
+               //alert("failed login! try again")
+                props.history.push('/');
+            }
+      }, [token]);
 
     // handle button click of login form
-    const handleLogin =  () => {
-         login();
+    const handleLogin =  () => {    
+         login();      
+        console.log("token in handleLogin()",token);
         
-         
-
-        console.log(Auth)
-    //let token = localStorage.getItem('x-auth-token');
-    //alert(token);
-      if (Auth){
+      if (Auth ){
       props.history.push('/profile');
       }
       else {
           alert("failed login! try again")
           props.history.push('/');
-
       }
     }
   
@@ -103,7 +82,7 @@ function LoginPage(props) {
           <input type="password" {...userpassword} autoComplete="new-password" />
         </div>
         {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-        <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
+        <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={ login} disabled={loading} /><br />
       </div>
     );
   }
