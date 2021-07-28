@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppHooks from './components/app';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import jwt_decode from 'jwt-decode';
 import {
     BrowserRouter as Router,
     Switch,

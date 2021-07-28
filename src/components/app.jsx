@@ -7,7 +7,7 @@ import Home from './home/Home';
 import RegisterPage from './registerpage/RegisterPage';
 import './app.css'
  const AppHooks = () => {
-
+    
 
      return(
          <div className="body">
