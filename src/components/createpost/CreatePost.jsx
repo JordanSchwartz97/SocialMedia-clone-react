@@ -1,10 +1,48 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './CreatePost.css'
 import axios from 'axios';
-import userEvent from '@testing-library/user-event';
+import jwt_decode from 'jwt-decode';
+
 
 export default function CreatePost(props) {
+    //console.log(props.userData.listFriends)
+    props.userData.listFriends.map(friend => console.log(friend))
+
+   //let friends = [];
+    //props.userData.listFriends.map(friend => {friends.push(friend)})
+   //console.log(friends);
+  /*
+    const jwt = localStorage.getItem('token');
+    let decoded = '';
+   try{
+       decoded = jwt_decode(jwt);
+       
+   } catch(ex) {
+      console.log(ex); 
+   } 
+   */
+
+
+    /*const getFriendPosts = async () => {
+        props.userData.listFriends.map(friend => {
+            await axios.get(`http://localhost:5000/api/collections/user/${friend}`)
+            .then((response) => {
+                console.log(response.data)
+            })
+       //await axios.get(`http://localhost:5000/api/collections/user/${decoded._id}`)
+       //.then((value) => {
+       //setUser(value.data)
+       //console.log(value.data)
+       //})
+
+   //getFriendPosts();*/
     console.log(props.userData,'this is createpost')
+
+
+
+
+
+
 
  let allPosts = [];
     
