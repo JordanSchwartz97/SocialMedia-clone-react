@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 
 export default function CreatePost(props) {
     //console.log(props.userData.listFriends)
-   // props.userData.listFriends.map(friend => console.log(friend))
+    // props.userData.listFriends.map(friend => console.log(friend))
 
    //let friends = [];
     //props.userData.listFriends.map(friend => {friends.push(friend)})
