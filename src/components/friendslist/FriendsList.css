@@ -1,0 +1,10 @@
+.friends-container{
+    background-color: white;
+    position: relative;
+    bottom: 1500px;
+    left: 40px;
+    width: 500px;
+    height:600px;
+    margin-top: 10px;
+    border: 1px solid black;
+}

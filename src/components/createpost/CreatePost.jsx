@@ -36,7 +36,7 @@ export default function CreatePost(props) {
        //})
 
    //getFriendPosts();*/
-    console.log(props.userData,'this is createpost')
+    console.log(props.user,'this is createpost')
 
 
 
@@ -61,7 +61,7 @@ export default function CreatePost(props) {
             </div>
             <div className="post">       
                 <div className="icon" img src="/assets/53283" alt="a picture of a soccer ball" class="rounded-circle" width='40' height='40'>
-                    <h2>{props.userData.name}</h2>
+                    <h2>{props.user.name}</h2>
                     <h4>My Posts</h4>
                 </div>
            </div>
