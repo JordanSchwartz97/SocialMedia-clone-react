@@ -4,6 +4,7 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import FriendRequests from '../friendrequests/FriendRequests';
 import FriendsList from '../friendslist/FriendsList';
+import ProfilePage from '../profile/profile';
 
 const Home = () => {
 
