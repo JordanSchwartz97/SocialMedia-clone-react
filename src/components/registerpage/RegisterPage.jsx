@@ -3,13 +3,16 @@ import './RegisterPage.css'
 
 
 export default function RegisterPage() {
+    
+        
+    
     return (
         <>
             <form className='input-div'>
                 <div className="input-div">
                 <div className='register-div'>
                 <label for="name">Name</label>
-                    <input type="name"  id="post-content" placeholder=""/>
+                    <input type="name"  id="exampleInputName" placeholder=""/>
                 </div>
                 <div >
                     <label >Email address</label>

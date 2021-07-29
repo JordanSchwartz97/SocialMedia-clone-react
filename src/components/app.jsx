@@ -18,7 +18,7 @@ import jwt_decode from 'jwt-decode';
             <Switch>
                 <Route path = "/" exact component ={LoginPage} />
                 <Route path = "/home" component = {Home}/>
-                <Route path = "/profile" component ={ProfilePage}  />
+                <Route path = "/profile" component ={ProfilePage} />
                 <Route path = "/register" component ={RegisterPage} />
             </Switch>
         

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import CreatePost from '../createpost/CreatePost'
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import FriendRequests from '../friendrequests/FriendRequests';
 
 const Home = () => {
 
@@ -17,8 +18,6 @@ const Home = () => {
    } 
    
 
-
-
     const getUserData = async () => {
        await axios.get(`http://localhost:5000/api/collections/user/${decoded._id}`)
        .then((value) => {
@@ -26,6 +25,9 @@ const Home = () => {
        console.log(value.data)
        })
    }
+
+   
+
    
    
    useEffect(() => {
@@ -38,6 +40,7 @@ const Home = () => {
     return (
         <div>
         {user && <CreatePost userData={user}/>}
+        {user && <FriendRequests userData={user}/>}
         {!user && <div>user not set</div>}
         </div>
     )

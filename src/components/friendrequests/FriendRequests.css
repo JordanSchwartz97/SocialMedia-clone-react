@@ -1,0 +1,13 @@
+.requests-container{
+    background-color: white;
+    position: relative;
+    bottom: 1500px;
+    left: 40px;
+    width: 500px;
+    height:600px;
+    border: 1px solid black;
+}
+.requests-title{
+    border: 1px solid black;
+    background-color: slategray;
+}
