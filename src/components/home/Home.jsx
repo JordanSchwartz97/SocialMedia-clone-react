@@ -3,6 +3,7 @@ import CreatePost from '../createpost/CreatePost'
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import FriendRequests from '../friendrequests/FriendRequests';
+import ProfilePage from '../profile/profile';
 
 const Home = () => {
 
@@ -40,6 +41,7 @@ const Home = () => {
     return (
         <div>
         {user && <CreatePost userData={user}/>}
+        {user && <ProfilePage userData={user}/>}
         {user && <FriendRequests userData={user}/>}
         {!user && <div>user not set</div>}
         </div>
