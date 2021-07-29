@@ -5,7 +5,7 @@ import jwt_decode from 'jwt-decode';
 
 
 export default function CreatePost(props) {
-    //console.log(props.userData.listFriends)
+    console.log("listFriends",props.userData.listFriends) //friends johndoe (ea7) & johndoe1 (ead)
     // props.userData.listFriends.map(friend => console.log(friend))
 
    //let friends = [];
@@ -23,12 +23,14 @@ export default function CreatePost(props) {
    */
 
 
-    /*const getFriendPosts = async () => {
+    let getFriendPosts = async () => {
         props.userData.listFriends.map(friend => {
             await axios.get(`http://localhost:5000/api/collections/user/${friend}`)
-            .then((response) => {
+            .then(response => {
                 console.log(response.data)
             })
+        }
+    }
        //await axios.get(`http://localhost:5000/api/collections/user/${decoded._id}`)
        //.then((value) => {
        //setUser(value.data)
@@ -36,7 +38,7 @@ export default function CreatePost(props) {
        //})
 
    //getFriendPosts();*/
-    console.log(props.userData,'this is createpost')
+    //console.log(props.userData,'this is createpost')
 
 
 
