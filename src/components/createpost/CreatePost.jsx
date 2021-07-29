@@ -23,8 +23,8 @@ export default function CreatePost(props) {
             </div>
             <div className="post">       
                 <div className="icon" img src="/assets/53283" alt="a picture of a soccer ball" class="rounded-circle" width='40' height='40'>
-                    <h4>{props.userData.name}</h4>
-                    <p></p>
+                    <h2>{props.userData.name}</h2>
+                    <h4>My Posts</h4>
                 </div>
            </div>
         </div>

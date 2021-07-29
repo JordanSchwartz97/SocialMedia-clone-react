@@ -22,6 +22,12 @@ function LoginPage(props) {
 
     //http://localhost:5000/api/auth/login/
 
+    //function{ token = getItem('token')
+    //decoded = decode(token)
+    //userId = decoded._Id
+    //}
+
+
     const login = async() => {
         const credentials = { email: useremail.value,
                               password: userpassword.value };
