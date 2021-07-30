@@ -3,12 +3,13 @@ import CreatePost from '../createpost/CreatePost'
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import FriendRequests from '../friendrequests/FriendRequests';
+import FriendsList from '../friendslist/FriendsList';
 import ProfilePage from '../profile/profile';
 
 const Home = () => {
 
     let [user, setUser] = useState({});
-  
+
     const jwt = localStorage.getItem('token');
     let decoded = '';
    try{
@@ -27,7 +28,14 @@ const Home = () => {
        })
    }
 
-   
+   const addFriend = async () => {
+       
+       console.log( 'addfriend is running')
+   }
+
+   const deleteFriend = async () => {
+       console.log('delete friend is running')
+   }
 
    
    
@@ -40,8 +48,9 @@ const Home = () => {
 
     return (
         <div>
-        {user && <CreatePost userData={user}/>}
-        {user && <FriendRequests userData={user}/>}
+        {user && <CreatePost user={user}/>}
+        {user && <FriendRequests user={user} addFriend={addFriend} deleteFriend={deleteFriend}/>}
+        {user && <FriendsList user={user}/>}
         {!user && <div>user not set</div>}
         </div>
     )
