@@ -49,12 +49,13 @@ export default function CreatePost(props) {
     return (
         
         <div className="container">
-                <div className="row">
+                <div className="title-row">
                    <h1>News Feed</h1>
                 </div>
             <div className="create-post-container">
+                <label className="create-a-post">Create a Post</label>
                 <form className="create-post">
-                <label  for="post-content">Create a Post</label>
+                
                 <textarea id="post-content" name="post-content" placeholder="Write Something.."></textarea>
                 <input type="submit" value="Submit Post"></input>
                 </form>

@@ -28,9 +28,11 @@ const Home = () => {
        })
    }
 
-   const addFriend = async () => {
+   
+
+   const addFriend = async (id) => {
        
-       console.log( 'addfriend is running')
+       console.log( id,'addfriend is running')
    }
 
    const deleteFriend = async () => {

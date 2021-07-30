@@ -1,5 +1,5 @@
 .container{
-    background-color: rgb(100, 84, 84);
+    background-color: rgb(55, 137, 219);
     height: 1500px;
     width:600px;
 }
@@ -33,5 +33,12 @@ textarea{
     position: relative;
     height: 300px;
     width: 800px;
+    
+}
+.title-row{
+    border: 1px solid black;
+}
+.create-a-post{
+    font-size: 40px;
     
 }
