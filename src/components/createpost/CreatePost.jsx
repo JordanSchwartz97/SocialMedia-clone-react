@@ -5,7 +5,7 @@ import jwt_decode from 'jwt-decode';
 
 
 export default function CreatePost(props) {
-    console.log("listFriends",props.userData.listFriends) //friends johndoe (ea7) & johndoe1 (ead)
+    //console.log("listFriends",props.userData.listFriends) //friends johndoe (ea7) & johndoe1 (ead)
     // props.userData.listFriends.map(friend => console.log(friend))
 
    //let friends = [];
