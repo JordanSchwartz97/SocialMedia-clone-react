@@ -92,7 +92,7 @@ function LoginPage(props) {
         {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
         
             <input type="button" className="leftButton" value={loading ? 'Loading...' : 'Login'} onClick={ login} disabled={loading} /> 
-            <input type="button" className="rightButton" value={loading ? 'Loading...' : 'Register'} onClick={ login} disabled={loading} /><br />
+            
       
       </div>
     );

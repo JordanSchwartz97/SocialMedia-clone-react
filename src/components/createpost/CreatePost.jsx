@@ -23,14 +23,14 @@ export default function CreatePost(props) {
    */
 
 
-    let getFriendPosts = async () => {
+  /*   let getFriendPosts = async () => {
         props.userData.listFriends.map(friend => {
             await axios.get(`http://localhost:5000/api/collections/user/${friend}`)
             .then(response => {
                 console.log(response.data)
             })
         }
-    }
+    } */
        //await axios.get(`http://localhost:5000/api/collections/user/${decoded._id}`)
        //.then((value) => {
        //setUser(value.data)

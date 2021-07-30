@@ -16,7 +16,7 @@ export default function ProfilePage(props) {
         <div className="profilePage">
             <h1 className="Users-Name">{props.userData.name}</h1>
             <img className="profile-image"src={logo} alt="profile-pic" width="300" height="300" border-radius="50%"></img>
-            <h2 className="bio">User Bio</h2>
+            <h2 className="bio">{props.userData.aboutMe}</h2>
         <div className="form">
             <h5 className="name">Name</h5>
             

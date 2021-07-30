@@ -41,7 +41,6 @@ const Home = () => {
     return (
         <div>
         {user && <CreatePost userData={user}/>}
-        {user && <ProfilePage userData={user}/>}
         {user && <FriendRequests userData={user}/>}
         {!user && <div>user not set</div>}
         </div>
