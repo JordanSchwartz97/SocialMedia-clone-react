@@ -52,7 +52,7 @@ import jwt_decode from 'jwt-decode';
                     if(!user){
                         return <Redirect to ="/" />
                     } else {
-                        return <ProfilePage {...props} userData={user} />
+                        return <ProfilePage {...props} user={user} />
                         }
                     }} />
 
@@ -60,7 +60,7 @@ import jwt_decode from 'jwt-decode';
                     if(!user){
                         return <Redirect to ="/register" />
                     } else {
-                        return <RegisterPage {...props} userData={user} />
+                        return <RegisterPage {...props} user={user} />
                         }
                     }} />       
                         

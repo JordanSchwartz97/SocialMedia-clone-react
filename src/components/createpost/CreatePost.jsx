@@ -21,7 +21,6 @@ export default function CreatePost(props) {
    } 
 
 
-    let allPosts=[{}]
     async function getFriendsId () {
         try{
             
@@ -38,28 +37,6 @@ export default function CreatePost(props) {
         }
     }
    
-   let everyonePost = []
-  
-   //get rid of getFriendPost() *not being used, function is implemented in useEffect() hooks*
-    const getFriendsPost = async() =>{
-        const friendsArray = await getFriendsId()
-        console.log("friendsPost func called", friendsArray)
-         const allPosts=[]  
-        try{
-            await friendsArray.map( (friendId) => 
-            axios.get(`http://localhost:5000/api/collections/user/${friendId}`).then(response => {
-            allPosts.push(response.data.post)
-            everyonePost.push(response.data)
-            }))
-            console.log(allPosts)
-            return allPosts;
-        
-            
-           
-        }catch(error){
-            console.log("error");
-        } 
-    }
     const [ isLoading, setIsLoading ] = useState(false)
     const [ data, setData ] = useState([])
   
@@ -71,9 +48,10 @@ export default function CreatePost(props) {
                 await friendsArray.map( (friendId) => 
                 axios.get(`http://localhost:5000/api/collections/user/${friendId}`).then(response => {       
                 setData(response.data.post)
+                console.log(response.data.post,'this is response data.')
                 setIsLoading(false);
                 }))
-                console.log(data)
+                
 
             }catch(error){
                 console.log("error");
@@ -82,9 +60,23 @@ export default function CreatePost(props) {
 
              fetchData()
             }, [])
-
- 
-    
+            const usertext = useFormInput('');
+            const email = useFormInput('');
+            const createNewPost = async() => {
+                console.log(props.user.email,'user email')
+                const newPost = { 
+                    text: usertext.value,
+                    
+                    };
+                    console.log(newPost,'this is new post')
+        
+                    console.log(newPost)
+                    
+              let response = await axios.post(`http://localhost:5000/api/collections/user/newPost/${props.user._id}`, newPost)  
+            console.log(response,'this is response from getpost')
+        }
+            
+    //<input type="text" {...username} autoComplete="new-username" />
     return (
         
         <div className="container">
@@ -94,18 +86,21 @@ export default function CreatePost(props) {
                 </div>
             <div className="create-post-container">
                 <label className="create-a-post">Create a Post</label>
-                <form className="create-post">
-                
-                <textarea id="post-content" name="post-content" placeholder="Write Something.."></textarea>
-                <input type="submit" value="Submit Post"></input>
-                </form>
+                <label >text</label>
+                    <input type="text" {...usertext} autoComplete="new-text" />
+                    <input type="button" className="submit-button" onClick={ createNewPost} />
+                {/* <form className="create-post">
+                <input type="" id="post-content" type="text" {...text}name="post-content" placeholder="Write Something.."></textarea>
+                <input type="submit" onSubmit={createNewPost()} value="Submit Post"></input> */}
+                {/* </form> */}
             </div>
             { !isLoading ?
-            <div className="post">       
+            <div className="friend-post">       
                 <div className="icon" img src="/assets/53283" alt="a picture of a soccer ball" class="rounded-circle" width='40' height='40'>
-                    <h2>Stories</h2>
+                    <h2>Posts</h2>
                     {data.map(item => console.log(item.text))}
-                    {data.map((premise, j) => <p key={j}>{premise.text}</p>)}
+                    {data.map((premise, j) => <p key={j}>{premise.text}{premise.dateAdded}</p>)}
+                
                    
                 </div>
            </div>
@@ -114,5 +109,15 @@ export default function CreatePost(props) {
     )
 }
     
-
+const useFormInput = initialValue => {
+                const [value, setValue] = useState(initialValue);
+              
+                const handleChange = e => {
+                  setValue(e.target.value);
+                }
+                return {
+                  value,
+                  onChange: handleChange
+                }
+              }
     
