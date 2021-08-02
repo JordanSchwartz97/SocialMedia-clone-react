@@ -51,8 +51,8 @@ export default function FriendRequests(props) {
                 <h3 className="">Pending Friend Requests</h3> 
             </div>
           
-           {friendNames ?
-            friendNames.map((item) => (
+           {props.user.pendingRequests ?
+           props.user.pendingRequests.map((item) => (
             <div>
             <h5 className="requests">{item.name} sent you a friend Request!</h5>
             <button className="add-friend-button btn-primary"  >Add Friend </button>
