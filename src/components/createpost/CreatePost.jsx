@@ -86,9 +86,8 @@ export default function CreatePost(props) {
                 </div>
             <div className="create-post-container">
                 <label className="create-a-post">Create a Post</label>
-                <label >text</label>
-                    <input type="text" {...usertext} autoComplete="new-text" />
-                    <input type="button" className="submit-button" onClick={ createNewPost} />
+                    <input type="text" className="create-post" {...usertext} autoComplete="new-text" />
+                    <input type="submit-button" className="submit-button" onClick={ createNewPost} placeholder="Submit Post" />
                 {/* <form className="create-post">
                 <input type="" id="post-content" type="text" {...text}name="post-content" placeholder="Write Something.."></textarea>
                 <input type="submit" onSubmit={createNewPost()} value="Submit Post"></input> */}

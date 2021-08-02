@@ -20,9 +20,9 @@ export default function FriendRequests(props) {
          friendObject()
     },[props.user.pendingRequests]) */
     
-    async function friendObject() {
+     function friendObject() {
         props.user.pendingRequests.map((id) => {
-           await axios.get(`http://localhost:5000/api/collections/user/${id}`)
+            axios.get(`http://localhost:5000/api/collections/user/${id}`)
            .then ((value) => {
               
            friendNames.push({email: value.data.email, name: value.data.name, id: id})
