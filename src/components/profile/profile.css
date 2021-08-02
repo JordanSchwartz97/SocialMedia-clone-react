@@ -2,9 +2,15 @@
     border-radius: 50%;
 
 }
+.profile-container {
+    background-color: rgb(55, 137, 219);
+    width: 450px;
+    height: 500px;
+    border: solid black 2px;
+}
 
 .Users-Name {
-    color: grey;
+    color: black;
     font-size:medium ;
     padding-left: 100px;
     padding-top: 25px;
@@ -12,8 +18,35 @@
 
 .bio{
 
-    color:grey;
+    color:black;
     font-size: small;
     padding-left: 120px;
     padding-top: 10px;
+}
+.form-container{
+    background-color: rgb(55, 137, 219);
+    border: solid black 2px;
+    width: 1200px;
+    height: 500px;
+    position: relative;
+    bottom: 500px;
+    left: 500px;
+}
+.about-me-content{
+    font-size: 40px;
+    bottom: 250px;
+    position: relative;
+}
+.create-about-me{
+    position: relative;
+    width:800px;
+    height:300px;
+    top: 100px;
+    right: 100px;
+    padding-top: 50px;
+}
+.submit-about-button{
+    position: relative;
+    left: 440px;
+    top: 50px;
 }

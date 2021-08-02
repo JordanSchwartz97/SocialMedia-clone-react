@@ -9,22 +9,24 @@ export default function ProfilePage(props) {
         <>
        
         {props.user ?
-        <div>
+        
 
        
-    
-        <div className="profilePage">
-            <h1 className="Users-Name">{props.user.name}</h1>
-            <img className="profile-image"src={logo} alt="profile-pic" width="300" height="300" border-radius="50%"></img>
-            <h2 className="bio">{props.user.aboutMe}</h2>
-        <div className="form">
-            <h5 className="name">Name</h5>
-            
-            <h5 className="email" onSubmit="">Email</h5>
-
+        <div className="profile-page">
+            <div className="profile-container">
+                <h1 className="Users-Name">{props.user.name}</h1>
+                <img className="profile-image"src={logo} alt="profile-pic" width="300" height="300" border-radius="50%"></img>
+                <h2 className="bio">{props.user.aboutMe}</h2>
+            </div>
+            <div className="form-container">
+                <label className="about-me-content">About Me</label>
+                <textarea className="create-about-me"/>
+                <input className="submit-about-button" type="button" value="Submit Post"  />
+            </div>
+        
         </div>
-        </div>
-        </div>
+        
+        
         :<h3>No User Data</h3>
         }
         </>
