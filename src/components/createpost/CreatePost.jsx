@@ -5,14 +5,13 @@ import jwt_decode from 'jwt-decode';
 
 
 export default function CreatePost(props) {
-    //console.log("listFriends",props.userData.listFriends) //friends johndoe (ea7) & johndoe1 (ead)
-    // props.userData.listFriends.map(friend => console.log(friend))
 
-   //let friends = [];
-    //props.userData.listFriends.map(friend => {friends.push(friend)})
-   //console.log(friends);
-  /*
+    
     const jwt = localStorage.getItem('token');
+   
+   // if(!jwt) 
+    //return "no valid token";
+
     let decoded = '';
    try{
        decoded = jwt_decode(jwt);
@@ -20,38 +19,77 @@ export default function CreatePost(props) {
    } catch(ex) {
       console.log(ex); 
    } 
-   */
 
 
-  /*   let getFriendPosts = async () => {
-        props.userData.listFriends.map(friend => {
-            await axios.get(`http://localhost:5000/api/collections/user/${friend}`)
-            .then(response => {
-                console.log(response.data)
-            })
+    let allPosts=[{}]
+    async function getFriendsId () {
+        try{
+            
+        let friendsArray = []
+        let response = await axios.get(`http://localhost:5000/api/collections/user/${decoded._id}`)
+        const json = await response.data; 
+        console.log(json)
+        await json.listFriends.map((friend ) => friendsArray.push(friend))
+
+        return friendsArray
+       
+        }catch(error){
+            console.log(error)
         }
-    } */
-       //await axios.get(`http://localhost:5000/api/collections/user/${decoded._id}`)
-       //.then((value) => {
-       //setUser(value.data)
-       //console.log(value.data)
-       //})
+    }
+   
+   let everyonePost = []
+  
+   //get rid of getFriendPost() *not being used, function is implemented in useEffect() hooks*
+    const getFriendsPost = async() =>{
+        const friendsArray = await getFriendsId()
+        console.log("friendsPost func called", friendsArray)
+         const allPosts=[]  
+        try{
+            await friendsArray.map( (friendId) => 
+            axios.get(`http://localhost:5000/api/collections/user/${friendId}`).then(response => {
+            allPosts.push(response.data.post)
+            everyonePost.push(response.data)
+            }))
+            console.log(allPosts)
+            return allPosts;
+        
+            
+           
+        }catch(error){
+            console.log("error");
+        } 
+    }
+    const [ isLoading, setIsLoading ] = useState(false)
+    const [ data, setData ] = useState([])
+  
+    useEffect(() => {
+           async function fetchData() {
+               setIsLoading(true)
+               const friendsArray = await getFriendsId()
+               try{
+                await friendsArray.map( (friendId) => 
+                axios.get(`http://localhost:5000/api/collections/user/${friendId}`).then(response => {       
+                setData(response.data.post)
+                setIsLoading(false);
+                }))
+                console.log(data)
 
-   //getFriendPosts();*/
-    console.log(props.user,'this is createpost')
+            }catch(error){
+                console.log("error");
+            }     
+            }
 
+             fetchData()
+            }, [])
 
-
-
-
-
-
- let allPosts = [];
+ 
     
     return (
         
         <div className="container">
                 <div className="title-row">
+                {console.log(data)}
                    <h1>News Feed</h1>
                 </div>
             <div className="create-post-container">
@@ -62,12 +100,16 @@ export default function CreatePost(props) {
                 <input type="submit" value="Submit Post"></input>
                 </form>
             </div>
+            { !isLoading ?
             <div className="post">       
                 <div className="icon" img src="/assets/53283" alt="a picture of a soccer ball" class="rounded-circle" width='40' height='40'>
-                    <h2>{props.user.name}</h2>
-                    <h4>My Posts</h4>
+                    <h2>Stories</h2>
+                    {data.map(item => console.log(item.text))}
+                    {data.map((premise, j) => <p key={j}>{premise.text}</p>)}
+                   
                 </div>
            </div>
+            : <h5>Posts are loading</h5>}
         </div>
     )
 }
